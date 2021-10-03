@@ -1,6 +1,5 @@
-https://youseflkc.github.io/online-shop/
-
 # OnlineShop
+website link: https://youseflkc.github.io/online-shop/
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.6.
 
