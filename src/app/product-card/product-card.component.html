@@ -1,0 +1,23 @@
+<mat-card class="item">
+  <div style="height: 200px">
+    <img class="img-fluid" src="{{ product.value.imageUrl }}">
+  </div>
+  <mat-card-title>{{ product.value.title}}</mat-card-title>
+  <mat-card-title>{{ product.value.price | currency}}</mat-card-title>
+  <mat-card-header>{{ product.value.category}}</mat-card-header>
+  <div *ngIf="showActions && shoppingCart">
+    <button
+      (click)="addToCart()"
+      mat-flat-button
+      color="accent"
+      *ngIf="shoppingCart.getQuantity(product.key)===0 else updateQuantity"
+    >Add to Cart
+    </button>
+    <ng-template #updateQuantity>
+      <product-quantity
+        [shopping-cart]="shoppingCart"
+        [product]="product"
+      ></product-quantity>
+    </ng-template>
+  </div>
+</mat-card>

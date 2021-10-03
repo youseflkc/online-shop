@@ -1,0 +1,5 @@
+<div class="quantity">
+  <button (click)="removeFromCart()" color="warn" mat-flat-button>-</button>
+  <mat-label class="mat-label">{{ shoppingCart.getQuantity(product.key) }}</mat-label>
+  <button (click)="addToCart()" color="primary" mat-flat-button>+</button>
+</div>

@@ -1,0 +1,47 @@
+<mat-card class="mat-elevation-z2">
+  <h1 class="mat-card-header">Shopping Cart</h1>
+  <p mat-card-content style="position: absolute">You have {{ this.totalQuantity }} items in your cart.</p>
+  <button mat-flat-button color="warn" class="mainBtn" (click)="clearCart()">Clear Shopping Cart
+  </button>
+  <div>
+    <table mat-table matSort [dataSource]="dataSource">
+      <ng-container matColumnDef="product">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td class="text-start" mat-cell *matCellDef="let product">
+          <img class="img-fluid" src="{{ product.imageUrl }}">
+          {{ (product.title) }}
+        </td>
+        <td class="text-start" mat-footer-cell *matFooterCellDef>Sub-Total</td>
+      </ng-container>
+
+      <ng-container matColumnDef="quantity">
+        <th class="text-center" mat-header-cell *matHeaderCellDef>Quantity</th>
+        <td class="text-center" mat-cell *matCellDef="let product">
+          <button mat-flat-button class="quantity" color="warn" (click)="removeFromCart(product)">-</button>
+          {{ product.quantity }}
+          <button mat-flat-button class="quantity" color="primary" (click)="addToCart(product)">+</button>
+        </td>
+        <td mat-footer-cell *matFooterCellDef></td>
+      </ng-container>
+
+      <ng-container matColumnDef="price">
+        <th class="text-end" mat-header-cell *matHeaderCellDef>Price</th>
+        <td class="text-end" mat-cell *matCellDef="let product"> {{ product.quantity * product.price |currency }} </td>
+        <td class="text-end" mat-footer-cell *matFooterCellDef>{{ getSubTotal()| currency }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+
+    </table>
+  </div>
+  <button
+    [disabled]="totalQuantity==0"
+    routerLink="/check-out/"
+    mat-flat-button
+    class="mainBtn"
+    color="primary">
+    Check Out
+  </button>
+</mat-card>

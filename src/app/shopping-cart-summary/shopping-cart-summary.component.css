@@ -1,0 +1,28 @@
+.mat-card {
+  margin-top: 7%;
+  margin-bottom: 7%;
+  padding: 50px;
+}
+
+.order {
+  float: right;
+  margin-right: 5%;
+  width: 35%;
+}
+
+.mat-table {
+  width: 100%;
+}
+
+.mat-cell {
+  font-size: 18px;
+}
+
+.mat-header-cell {
+  font-size: 20px;
+}
+
+.mat-footer-cell {
+  font-size: 20px;
+  font-weight: bold;
+}

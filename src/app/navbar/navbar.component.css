@@ -1,0 +1,49 @@
+.nav-link {
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "Kalimati", serif;
+  cursor: pointer;
+  color: white;
+}
+
+.mat-icon {
+  display: inline-flex;
+  vertical-align: middle;
+  position: fixed;
+}
+
+.dropdown-item {
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.nav-link:hover {
+  background-color: rgba(0, 0, 0, 0.04)
+}
+
+.navbar {
+  padding: 10px;
+  height: 15%;
+  background-color: #673ab7;
+  position: sticky;
+  z-index: 50;
+}
+
+.nav-item {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.a{
+  color: white;
+}
+
+.img-logo{
+  max-width: 90px;
+  max-height: 90px;
+  cursor: pointer;
+}
+
+.mat-menu{
+  float: bottom;
+}

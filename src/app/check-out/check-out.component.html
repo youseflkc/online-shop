@@ -1,0 +1,75 @@
+<mat-card class="shipping">
+  <h1 class="mat-card-header">Shipping</h1>
+  <form #f="ngForm">
+    <div class="form-container">
+      <div>
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input
+            matInput
+            [(ngModel)]="shipping.name"
+            #name="ngModel"
+            name="name"
+            required
+            maxlength="25"
+          >
+          <mat-error *ngIf="name.invalid && name.errors.required">Please enter your name.</mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-label>Address: Line 1</mat-label>
+          <input
+            matInput
+            [(ngModel)]="shipping.address1"
+            #address1="ngModel"
+            name="address1"
+            required
+            maxlength="25"
+          >
+          <mat-error *ngIf="address1.invalid && address1.errors.required">Please enter your address.</mat-error>
+        </mat-form-field>
+        <div>
+          <mat-form-field>
+            <mat-label>Address: Line 2</mat-label>
+            <input
+              matInput
+              [(ngModel)]="shipping.address2"
+              #address1="ngModel"
+              name="address2"
+              maxlength="25"
+            >
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <mat-label>City</mat-label>
+            <input
+              matInput
+              [(ngModel)]="shipping.city"
+              #city="ngModel"
+              required
+              name="city"
+              maxlength="25"
+            >
+            <mat-error *ngIf="city.invalid && city.errors.required">Please enter your city.</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+  </form>
+  <button mat-flat-button [disabled]="!f.valid" color="primary" style="font-size: 22px; float: right"
+          (click)="placeOrder()">Place Order
+  </button>
+</mat-card>
+
+<shopping-cart-summary [subTotal]="getSubTotal()"></shopping-cart-summary>
+
+<mat-progress-spinner
+  style="position:absolute; bottom: 15%;left: 45%"
+  color="primary"
+  *ngIf="orderPlaced"
+  mode="indeterminate">
+</mat-progress-spinner>
+
+

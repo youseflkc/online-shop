@@ -83,7 +83,7 @@
       }
     },
     "typedef": [
-      true,
+      false,
       "call-signature"
     ],
     "typedef-whitespace": {
@@ -102,13 +102,6 @@
           "property-declaration": "onespace",
           "variable-declaration": "onespace"
         }
-      ]
-    },
-    "variable-name": {
-      "options": [
-        "ban-keywords",
-        "check-format",
-        "allow-pascal-case"
       ]
     },
     "whitespace": {

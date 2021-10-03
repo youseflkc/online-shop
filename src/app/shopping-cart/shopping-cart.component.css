@@ -1,0 +1,48 @@
+.mat-card {
+  margin: 7%;
+  padding-bottom: 10%;
+  width: 70%;
+}
+
+.mat-card-content {
+  font-size: 22px;
+}
+
+.mat-table {
+  width: 100%;
+}
+
+.mat-cell {
+  font-size: 20px;
+}
+
+.mat-header-cell {
+  font-size: 20px;
+}
+
+.mat-footer-cell {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.img-fluid {
+  margin: 25px;
+  max-width: 100px;
+  max-height: 100px;
+  width: auto;
+  height: auto;
+}
+
+.quantity {
+  width: 35px;
+  margin: 15px;
+  height: 40px;
+  font-size: 24px;
+  border-radius: 100%;
+}
+
+.mat-flat-button.mainBtn {
+  font-size: 24px;
+  margin: 35px;
+  float: right;
+}

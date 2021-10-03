@@ -1,0 +1,22 @@
+<div class="container-custom">
+  <mat-card class="mat-elevation-z4 categories">
+    <button
+      color="primary"
+      routerLink=""
+      [queryParams]="{category:'all'}"
+      [class.active]="selectedCategory==='all'"
+      mat-flat-button>
+      All Categories
+    </button>
+    <button routerLink="" [queryParams]="{category:category.name}"
+            color="primary"
+            [class.active]="(selectedCategory===category.name)"
+            (click)="filterCategory(category.name)"
+            mat-flat-button
+            *ngFor="let category of categories$">{{ category.name }}</button>
+  </mat-card>
+  <mat-card class="container mat-elevation-z2">
+    <product-card *ngFor="let product of filteredProducts" [product]="product"
+                  [shopping-cart]="cart"></product-card>
+  </mat-card>
+</div>

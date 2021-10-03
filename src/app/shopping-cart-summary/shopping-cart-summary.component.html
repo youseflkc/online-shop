@@ -1,0 +1,27 @@
+<mat-card class="order">
+  <h1 class="mat-card-header">Order Summary</h1>
+  <div>
+    <table mat-table matSort [dataSource]="dataSource">
+
+      <ng-container matColumnDef="product">
+        <th mat-header-cell *matHeaderCellDef>Product</th>
+        <td class="text-start" mat-cell *matCellDef="let product">
+          {{ product.quantity }} x
+          {{ (product.title) }}
+        </td>
+        <td class="text-start" mat-footer-cell *matFooterCellDef>Sub-Total</td>
+      </ng-container>
+
+      <ng-container matColumnDef="price">
+        <th class="text-end" mat-header-cell *matHeaderCellDef>Price</th>
+        <td class="text-end" mat-cell *matCellDef="let product"> {{ product.quantity * product.price |currency }} </td>
+        <td class="text-end" mat-footer-cell *matFooterCellDef>{{ subTotal| currency }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+
+    </table>
+  </div>
+</mat-card>

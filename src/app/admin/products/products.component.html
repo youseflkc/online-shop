@@ -1,0 +1,47 @@
+<div class="d-flex">
+  <form class="form-control form-container">
+    <div class="flex-grow-1 ms-3">
+      <div class="mb-3">
+        <button color="primary" mat-flat-button (click)="addProduct()">New Product</button>
+      </div>
+      <div>
+        <mat-form-field style="width: 45vw">
+          <mat-label>Search...</mat-label>
+          <input
+            #query
+            (keyup)="filter(query.value)"
+            matInput
+          >
+        </mat-form-field>
+      </div>
+      <div [hidden]="productList.length<=0">
+        <table mat-table matSort class="mat-elevation-z8" [dataSource]="dataSource">
+
+          <ng-container matColumnDef="value.title">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef>Title</th>
+            <td mat-cell *matCellDef="let product"> {{product.value.title}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="value.price">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef>Price</th>
+            <td mat-cell *matCellDef="let product"> {{product.value.price | currency}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="value.category">
+            <th mat-header-cell mat-sort-header *matHeaderCellDef>Category</th>
+            <td mat-cell *matCellDef="let product"> {{product.value.category}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="edit">
+            <th mat-header-cell *matHeaderCellDef>Edit</th>
+            <td mat-cell *matCellDef="let product"><a routerLink="/edit-product/{{ product.key }}">edit</a></td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 15, 20, 50]" showFirstLastButtons></mat-paginator>
+      </div>
+    </div>
+  </form>
+</div>
