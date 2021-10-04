@@ -1,5 +1,6 @@
 # OnlineShop
 Online grocery store shopping website demo. Built using Angular and running on firebase.
+
 website link: https://shopping-demo-3421c.web.app/
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.6.
